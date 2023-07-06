@@ -1,0 +1,105 @@
+#half{
+    border:1px solid black;
+    text-align:center;
+  }
+  #half h1{
+    font-family:'Dancing Script' , 'Helvetica', sans-serif;
+    font-weight:800;
+    font-size:30px;
+    color:#b30086;
+  }
+  /*****************************/
+  .vertical-nav {
+    min-width: 16rem;
+    width: 16rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+  }
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+  /*********************/
+  #img-div{
+    width:98%;
+    max-width: 100%;
+    display: block;
+    height:auto;
+    margin:auto;
+    background:white;
+  }
+  #image img{
+    max-width:100%;
+    /*this is the only way to make image responsive inside the flexbox*/
+    margin:auto;
+    display: block;
+  }
+  #image{
+    /*responsive*/
+    max-width: 99%;
+    height: auto;
+        /* */ 
+    /*centerized*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+         /* */
+  }
+  .lead a:hover{
+    text-decoration:none;
+  }
+  
+  /* for toggle behavior */
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  @media (max-width: 767px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      /***padge****/
+      width: calc(100% - 17rem);
+    }
+  }
+  
+  
+  body {
+    background:#330066;
+    background: linear-gradient(to right, #330066, #ff99cc);
+    background: -webkit-linear-gradient(to right, #330066, #ff99cc);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.1em;
+  }
+  
+  .text-gray {
+    color: #aaa;
+  }
