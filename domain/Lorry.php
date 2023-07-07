@@ -1,7 +1,7 @@
 <?php
 class Lorry
 {
-    private long $id;
+    private long $idLorry;
     private String $brand;
     private int $km;
     private String $model;
