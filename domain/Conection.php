@@ -12,7 +12,7 @@ class Conecction
         try {
             $dbname = "emilidatabase"; //Nombre de la Base de Datos
             $user = "root"; // Usuario
-            $password = "root"; // Contraseña
+            $password = "3-Aminavana"; // Contraseña
             $server = 'localhost'; // Dirección servidor
             $dbh = "";
             $dsn = "mysql:host=$server;dbname=$dbname;charset=UTF8";
