@@ -31,7 +31,7 @@ $(function() {
           <div class="py-4 px-3 mb-2 mt-2 bg-light">
             <div class="align-items-center" id="half">    
             <div id="image" >
-             <img src="resources/img/NOSTROMO - LOGISTIC.png" alt="...">
+             <img src="resources/img/NOSTROMO-LOGISTIC_logo.png" alt="...">
            </div>
             </div>
           </div>
@@ -39,43 +39,18 @@ $(function() {
           <ul class="nav flex-column bg-white mb-0">
             <li class="nav-item">
               <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>Home
+                <i class="fa fa-truck mr-3 text-primary fa-fw"></i>Vehiculos
+              </a>  
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-list mr-3 text-primary fa-fw"></i>listados
               </a>  
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-                About
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="fas fa-compact-disc mr-3 text-primary fa-fw"></i>
-                Albums
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="fas fa-clipboard-list mr-3 text-primary fa-fw"></i>
-                Shows
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="far fa-id-card mr-3 text-primary fa-fw"></i>
-                Bio
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="fas fa-blog mr-3 text-primary fa-fw"></i>
-                Blog
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
-                <i class="far fa-images mr-3 text-primary fa-fw"></i>
-                Gallery
+                Agenda
               </a>
             </li>
           </ul>
@@ -95,7 +70,7 @@ $(function() {
     <!-- content -->
         <figure class="mb-4" id="img-div">
            <div id="image" >
-             <img src="resources/img/NOSTROMO - LOGISTIC.png" alt="...">
+             <img src="resources/img/NOSTROMO-LOGISTIC_logo.png" alt="...">
            </div>
          </figure>
   
