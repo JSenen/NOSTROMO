@@ -1,12 +1,14 @@
 <?php
 include './domain/Conection.php';
-
-$conecction = new Conecction();
-$dbh = $conecction->getConection();
+require_once './domain/Lorry.php';
 
 function iniweb(){
-    include 'view/headerview.php';
-    include 'view/contentview.php';
-    include 'view/footerview.php';
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $lorries = new Lorry();
+    $lstLorries = $lorries->getLorries($dbh);
+    include 'model/listlorriesModel.php';
+    listLorrys($lstLorries);
+
 }
 ?>
