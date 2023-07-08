@@ -8,12 +8,12 @@ function listLorrys($lorries)
 
   ?>
 
-  <div class="container">
+  <div class="contenido">
 
     <table class="table table-striped table-fixed" id="tableLorries">
       <thead>
         <tr>
-          <th style="width: 8.5%">MATRICULA</th>
+          <th class="text-info" style="width: 8.5%">MATRICULA</th>
           <th style="width: 44.5%">KM</th>
           <th style="width: 6%">MODELO</th>
 
@@ -26,7 +26,7 @@ function listLorrys($lorries)
           ?>
 
           <tr>
-            <td><?php echo $lorry['brand'];?></td>
+            <td class="text-white"><?php echo $lorry['brand'];?></td>
             <td><?php echo $lorry['km'];?></td>
             <td><?php echo $lorry['model'];?></td>
 
@@ -61,7 +61,7 @@ function listLorrys($lorries)
     });
   </script>
 
-  <div class="container">
+  <div class="content">
     <button type="button" class="btn btn-outline-info" onclick="location.reload()">Actualizar</button>
   </div>
 
