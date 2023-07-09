@@ -64,7 +64,7 @@ function listLorrys($lorries)
     });
   </script>
     <div class="content">
-    <a href="#" class="btn btn-primary">+ AÑADIR VEHICULO</a>
+    <a href="index.php?action=addLorry" class="btn btn-primary">+ AÑADIR VEHICULO</a>
   </div>
   <?php
 }

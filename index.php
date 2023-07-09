@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 define('CONTROLLER_FOLDER', "controller/"); //Directorio donde definimos los controladores
 define('DEFAULT_CONTROLLER', "start"); //Controlador por defecto
 define('DEFAULT_ACTION', "iniweb"); //Accion por defecto

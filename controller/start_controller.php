@@ -11,4 +11,11 @@ function iniweb(){
     listLorrys($lstLorries);
 
 }
+
+function addLorry(){
+    
+    include 'view/addlorriesview.php';
+   
+    
+}
 ?>
