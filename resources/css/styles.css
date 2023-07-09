@@ -86,9 +86,9 @@
   
   
   body {
-    background: #EAF6FF !important; /* Fallback color */
-    background: linear-gradient(to right, #EAF6FF, #C0E8FF) !important; /* Estilo de gradiente */
-  }
+    background: #ffffff !important; /* Fallback color */
+    background: linear-gradient(to right, #ffffff, #e4e6e7) !important; /* Estilo de gradiente */
+}
   
   .separator {
     margin: 3rem 0;
@@ -100,7 +100,7 @@
   }
   
   .text-gray {
-    color: #aaa;
+    color: #060606;
   }
 
 

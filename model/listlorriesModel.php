@@ -14,8 +14,8 @@ function listLorrys($lorries)
       <thead>
         <tr>
           <th class="text-info" style="width: 8.5%">MATRICULA</th>
-          <th style="width: 44.5%">KM</th>
-          <th style="width: 6%">MODELO</th>
+          <th class="text-info" style="width: 44.5%">KM</th>
+          <th class="text-info" style="width: 6%">MODELO</th>
 
         </tr>
       </thead>
@@ -26,7 +26,7 @@ function listLorrys($lorries)
           ?>
 
           <tr>
-            <td class="text-white"><?php echo $lorry['brand'];?></td>
+            <td ><?php echo $lorry['brand'];?></td>
             <td><?php echo $lorry['km'];?></td>
             <td><?php echo $lorry['model'];?></td>
 
