@@ -20,5 +20,18 @@ public function getLorries($dbh){
     }
 }
 
+public function addLorries($dbh, $brand, $model, $km){
+    try {
+        $sql = "INSERT INTO lorry (brand, model, km) VALUES (:brand,:model,:km)";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+        $stmt->bindParam(':model', $model, PDO::PARAM_STR);
+        $stmt->bindParam(':km', $km, PDO::PARAM_STR);
+        $stmt->execute();
+      } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+  
+      }    
+}
 }
 ?>

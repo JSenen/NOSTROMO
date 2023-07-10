@@ -9,13 +9,14 @@ function iniweb(){
     $lstLorries = $lorries->getLorries($dbh);
     include 'model/listlorriesModel.php';
     listLorrys($lstLorries);
-
 }
 
 function addLorry(){
-    
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'view/headerview.php';
     include 'view/addlorriesview.php';
-   
-    
+    include 'model/addlorryModel.php';
+    addNewLorry($dbh);
 }
 ?>

@@ -44,7 +44,7 @@ $(function() {
           <p class="text-gray font-weight-bold text-uppercase px-3 small pb-3 mb-2 mt-3">Main</p>
           <ul class="nav flex-column bg-white mb-0">
             <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
+              <a href="index.php" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-truck mr-3 text-primary fa-fw"></i>Vehiculos
               </a>  
             </li>
