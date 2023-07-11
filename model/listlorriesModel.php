@@ -31,7 +31,7 @@ function listLorrys($lorries)
             <td ><?php echo $lorry['brand'];?></td>
             <td><?php echo $lorry['km'];?></td>
             <td><?php echo $lorry['model'];?></td>
-            <td><a href="#" class="btn btn-primary">EDITAR</a></td>
+            <td><a href="index.php?brand=<?php echo $lorry['brand']?>" class="btn btn-primary">EDITAR</a></td>
 
 
           </tr>

@@ -33,5 +33,40 @@ public function addLorries($dbh, $brand, $model, $km){
   
       }    
 }
+
+public function getOneLorry($dbh, $brand){
+  try {
+    
+    $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km FROM lorry WHERE brand = :brand");
+    $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (!$resultado) { // Si no existe 
+      echo 'SIN RESULTADO'; //TODO fixit
+    }
+
+  } catch (PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+    redirect('errorpagePDO_view.php');
+  }
+  return $resultado;
 }
+
+function modyLorry($dbh, $brand, $model, $km, $id){
+ try {
+      //configuramos el prepared statement
+      $stmt = $dbh->prepare("UPDATE lorry SET brand = :brand, model = :model, km = :km WHERE id_lorry = :id");
+      $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+      $stmt->bindParam(':model', $model, PDO::PARAM_STR);
+      $stmt->bindParam(':km', $km, PDO::PARAM_INT);
+      $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+
+      $stmt->execute();
+    } catch (PDOException $e) {
+      echo "ERROR: " . $e->getMessage();
+      //TODO
+    }
+}
+}
+
 ?>

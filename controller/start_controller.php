@@ -19,4 +19,15 @@ function addLorry(){
     include 'model/addlorryModel.php';
     addNewLorry($dbh);
 }
+
+function modLorry($brand){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'view/headerview.php';
+    $lorryToMod = new Lorry();
+    $lorrySearch = $lorryToMod->getOneLorry($dbh,$brand);
+    include 'model/addLorryModel.php';
+    editLorry($dbh,$lorrySearch);   //Pasamos el camión deseado al model
+
+}
 ?>

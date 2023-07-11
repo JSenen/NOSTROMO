@@ -28,7 +28,37 @@ function addNewLorry($dbh){
     
         }
       }
-    
+}
+
+function editLorry($dbh,$lorry){
+
+  foreach ($lorry as $lorrytomod ) {
+    $lorrybrand = $lorrytomod['brand'];
+    $lorrymodel = $lorrytomod['model'];
+    $lorrykm = $lorrytomod['km'];
+    $id = $lorrytomod['id_lorry'];
+    //Pasamos los datos al formulario
+    include 'view/editlorriesview.php';
+  }
+
+  //recogemos datos y los pasamos a la base
+
+  // Procesamo el formulario y guardamos los datos en la BD.
+  if (isset($_POST['modLorry'])) {
+
+    $lorry_brand =$_POST['lorrybrand'];
+    $lorry_model = $_POST['lorrymodel'];
+    $lorry_km= $_POST['lorrykm'];
+    // guardamos los datos en la base de datos
+    $lorrytochange = new Lorry();
+    $lorrytochange->modyLorry($dbh, $lorry_brand, $lorry_model, $lorry_km, $id);
+
+    //una vez guardados, redirigimos a la p�gina principal
+    header("Location: index.php");
+
+  }
+  
+ 
 
 }
 ?>
