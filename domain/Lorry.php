@@ -21,6 +21,9 @@ public function getLorries($dbh){
 }
 
 public function addLorries($dbh, $brand, $model, $km){
+  $brand = strtoupper($brand);
+  $model = strtoupper($model);
+  $km = strtoupper($km);
     try {
         $sql = "INSERT INTO lorry (brand, model, km) VALUES (:brand,:model,:km)";
         $stmt = $dbh->prepare($sql);
