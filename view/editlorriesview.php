@@ -3,15 +3,15 @@
  <form action="" method="post">
   <div class="form-group">
     <label for="lorryBrand">MATRICULA</label>
-    <input type="text" class="form-control" name="lorrybrand" id="lorrybrand" placeholder="<?php echo $lorrybrand ?>">
+    <input type="text" class="form-control" name="lorrybrand" id="lorrybrand" value="<?php echo $lorrybrand ?>">
   </div>
   <div class="form-group">
     <label for="lorryModel">MODELO</label>
-    <input type="text" class="form-control" name="lorrymodel" id='lorrymodel' placeholder="<?php echo $lorrymodel ?>">
+    <input type="text" class="form-control" name="lorrymodel" id='lorrymodel' value="<?php echo $lorrymodel ?>">
   </div>
   <div class="form-group">
     <label for="lorryModel">KM</label>
-    <input type="text" class="form-control" name="lorrykm" id='lorrykm' placeholder="<?php echo $lorrykm ?>">
+    <input type="text" class="form-control" name="lorrykm" id='lorrykm' value="<?php echo $lorrykm ?>">
   </div>
   <button type="submit" class="btn btn-primary" name="modLorry">Submit</button>
 </form>
