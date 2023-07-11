@@ -5,10 +5,16 @@ define('CONTROLLER_FOLDER', "controller/"); //Directorio donde definimos los con
 define('DEFAULT_CONTROLLER', "start"); //Controlador por defecto
 define('DEFAULT_ACTION', "iniweb"); //Accion por defecto
 
-if (!empty($_GET['brand'])){
-  $brand = $_GET['brand'];
+if (!empty($_GET['action'])){
+  $action = $_GET['action'];
 }else{
-  $brand = '';
+  $action = DEFAULT_ACTION;
+}
+
+if (!empty($_GET['idlorry'])){
+  $idLorry = $_GET['idlorry'];
+}else{
+  $idLorry = '';
 }
 
 //Obtenemos el controlador. Si no por defecto
@@ -16,15 +22,6 @@ $controller = DEFAULT_CONTROLLER;
 if (!empty($_GET['controller']))
   $controller = $_GET['controller'];
 //Obtenemos la accion deseada. Si no por defecto
-
-if ($brand != ''){
-  $action = 'modLorry';
-}else{
-  $action = DEFAULT_ACTION;
-if (!empty($_GET['action']))
-  $action = $_GET['action'];
-}
-
 
 //Formacion del fichero que contiene el controlador
 $controller = CONTROLLER_FOLDER . $controller . '_controller.php';
@@ -37,7 +34,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if (is_callable($action))
-  $action($brand);
+  $action($idLorry);
 else
   die("La accion requerida no existe 404 not found");
   ?>

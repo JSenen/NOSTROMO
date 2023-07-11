@@ -20,14 +20,21 @@ function addLorry(){
     addNewLorry($dbh);
 }
 
-function modLorry($brand){
+function modLorry($id){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
     include 'view/headerview.php';
     $lorryToMod = new Lorry();
-    $lorrySearch = $lorryToMod->getOneLorry($dbh,$brand);
+    $lorrySearch = $lorryToMod->getOneLorry($dbh,$id);
     include 'model/addLorryModel.php';
     editLorry($dbh,$lorrySearch);   //Pasamos el camión deseado al model
 
+}
+
+function eraseLorry($id){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'model/addlorryModel.php';
+    eraseALorry($dbh,$id);
 }
 ?>

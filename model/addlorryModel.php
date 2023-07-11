@@ -57,6 +57,11 @@ function editLorry($dbh,$lorry){
     header("Location: index.php");
 
   }
+
+  function eraseALorry($dbh,$id){
+    
+
+  }
   
  
 

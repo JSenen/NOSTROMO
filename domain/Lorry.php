@@ -10,7 +10,7 @@ public function __construct(){}
 
 public function getLorries($dbh){
     try{
-        $stmt = $dbh->prepare("SELECT brand, km, model FROM lorry" );
+        $stmt = $dbh->prepare("SELECT id_lorry, brand, km, model FROM lorry" );
         $stmt->execute();
         $lorries = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $lorries;
@@ -37,11 +37,11 @@ public function addLorries($dbh, $brand, $model, $km){
       }    
 }
 
-public function getOneLorry($dbh, $brand){
+public function getOneLorry($dbh, $id){
   try {
     
-    $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km FROM lorry WHERE brand = :brand");
-    $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
+    $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km FROM lorry WHERE id_lorry = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_STR);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (!$resultado) { // Si no existe 
@@ -69,6 +69,16 @@ function modyLorry($dbh, $brand, $model, $km, $id){
       echo "ERROR: " . $e->getMessage();
       //TODO
     }
+}
+
+function deletelorry($dbh,$id){
+  try {
+    $stmt = $dbh->prepare('DELETE FROM lorry WHERE id_lorry=:id');
+    $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+    $stmt->execute();
+  } catch (PDOException $e) {
+    echo "ERROR: " . $e->getMessage();
+  }
 }
 }
 
