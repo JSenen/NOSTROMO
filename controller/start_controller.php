@@ -34,7 +34,9 @@ function modLorry($id){
 function eraseLorry($id){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
-    include 'model/addlorryModel.php';
-    eraseALorry($dbh,$id);
+    $deleteLorry = new Lorry();
+    $deleteLorry->deletelorry($dbh,$id);
+    header('Location: index.php');
+
 }
 ?>

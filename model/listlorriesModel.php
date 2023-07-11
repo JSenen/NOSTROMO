@@ -33,7 +33,7 @@ function listLorrys($lorries)
             <td><?php echo $lorry['km'];?></td>
             <td><?php echo $lorry['model'];?></td>
             <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary">Editar</a></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>" class="btn btn-danger">Borrar</a></td>
+            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger">Borrar</a></td>
           </tr>
 
           <?php

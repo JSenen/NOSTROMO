@@ -59,8 +59,13 @@ function editLorry($dbh,$lorry){
   }
 
   function eraseALorry($dbh,$id){
-    
-
+      
+        $dellorry = new Lorry();
+        try {
+            $dellorry->deletelorry($dbh,$id);
+        } catch (Exception $e) {
+            echo 'Se ha producido un error' . $e->getMessage();
+        }
   }
   
  
