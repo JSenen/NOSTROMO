@@ -47,4 +47,14 @@ class Mechanic{
   
       }    
     }
+
+    function deleteMechanic($dbh,$id){
+      try {
+        $stmt = $dbh->prepare('DELETE FROM mechanic_store WHERE id_mechanic=:id');
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+      } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+      }
+    }
 }

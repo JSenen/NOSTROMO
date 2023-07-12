@@ -1,5 +1,6 @@
 <?php
 include_once './domain/Mechanic.php';
+include_once('./view/headerview.php');
 
 function iniAgenda($dbh, $listmechanic){
     ?>
@@ -14,7 +15,8 @@ function iniAgenda($dbh, $listmechanic){
             <th class="text-info" style="width: 6%">CIUDAD</th>
             <th class="text-info" style="width: 6%">TELEFONO</th>
             <th class="text-info" style="width: 6%">TIPO</th>
-            
+            <th class="text-info" style="width: 6%">Editar</th>
+            <th class="text-info" style="width: 6%">Borrar</th>            
   
           </tr>
         </thead>
@@ -31,7 +33,7 @@ function iniAgenda($dbh, $listmechanic){
               <td><?php echo $mechanic['phone'];?></td>
               <td><?php echo $mechanic['type'];?></td>
               <td><a href="#" class="btn btn-primary">Editar</a></td>
-              <td><a href="" class="btn btn-danger">Borrar</a></td>
+              <td><a href="index.php?idlorry=<?php echo $mechanic['id_mechanic']?>&action=eraseMechanic" class="btn btn-danger">Borrar</a></td>
             </tr>
   
             <?php

@@ -4,10 +4,7 @@ include_once('./view/headerview.php');
 
 function listLorrys($lorries)
 {
-  
-
   ?>
-
   <div class="contenido">
 
     <table class="table table-striped table-fixed" id="tableLorries">
@@ -42,6 +39,7 @@ function listLorrys($lorries)
       </tbody>
     </table>
   </div>
+
   <script>
     $(document).ready(function () {
       $('#tableLorries').DataTable({

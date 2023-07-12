@@ -15,8 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
  
-  <!-- Include DataTables JavaScript -->
-  <script src="https://cdn.datatables.net/v/dt/dt-1.11.0/datatables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+  
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+  
   </head>
   
   

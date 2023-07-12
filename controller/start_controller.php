@@ -16,8 +16,8 @@ function addLorry(){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
     include 'view/headerview.php';
-    include 'view/addlorriesview.php';
     include 'model/addlorryModel.php';
+    include 'view/addlorriesview.php';    
     addNewLorry($dbh);
 }
 
@@ -44,8 +44,6 @@ function eraseLorry($id){
 function agenda(){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
-
-    include 'view/headerview.php';
     $mechaniclist = new Mechanic();
     $listmechanic = $mechaniclist->getMechanics($dbh);
     include 'model/listagendaModel.php';
@@ -55,12 +53,18 @@ function agenda(){
 function addMechanic(){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
-    include 'view/headerview.php';
-    include 'view/addmechanicview.php';
     include 'model/addmechanicModel.php';
+    include_once 'view/headerview.php';
+    include 'view/addmechanicview.php';
     newMechanic($dbh);
+}
 
-    
+function eraseMechanic($id){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $deleteMechanic = new Mechanic();
+    $deleteMechanic->deleteMechanic($dbh,$id);
+    header('Location: index.php?action=agenda');
 }
 
 ?>
