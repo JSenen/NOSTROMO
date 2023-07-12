@@ -1,6 +1,7 @@
 <?php
 include './domain/Conection.php';
 require_once './domain/Lorry.php';
+require_once './domain/Mechanic.php';
 
 function iniweb(){
     $conecction = new Conecction();
@@ -39,4 +40,27 @@ function eraseLorry($id){
     header('Location: index.php');
 
 }
+
+function agenda(){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+
+    include 'view/headerview.php';
+    $mechaniclist = new Mechanic();
+    $listmechanic = $mechaniclist->getMechanics($dbh);
+    include 'model/listagendaModel.php';
+    iniAgenda($dbh, $listmechanic);
+}
+
+function addMechanic(){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'view/headerview.php';
+    include 'view/addmechanicview.php';
+    include 'model/addmechanicModel.php';
+    newMechanic($dbh);
+
+    
+}
+
 ?>

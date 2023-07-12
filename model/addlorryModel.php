@@ -19,8 +19,8 @@ function addNewLorry($dbh){
           $Newlorry = new Lorry();
           try {
             $Newlorry->addLorries($dbh,$lorry_matricula,$lorry_modelo,$lorry_km);
-            echo 'NUEVO CAMION GRABADO';
             header('Location: ./index.php');
+            exit();
           } catch (Exception $e) {
             // Manejar la excepción aquí
             echo 'Ha ocurrido un error: ' . $e->getMessage();
@@ -55,6 +55,7 @@ function editLorry($dbh,$lorry){
 
     //una vez guardados, redirigimos a la p�gina principal
     header("Location: index.php");
+    exit();
 
   }
 

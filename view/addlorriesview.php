@@ -13,6 +13,6 @@
     <label for="lorryModel">KM</label>
     <input type="text" class="form-control" name="kmlorry" id='kmlorry' placeholder="Inserte km">
   </div>
-  <button type="submit" class="btn btn-primary" name="addALorry">Submit</button>
+  <button type="submit" class="btn btn-primary" name="addALorry">Añadir</button>
 </form>
 </div>
