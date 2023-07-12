@@ -67,4 +67,16 @@ function eraseMechanic($id){
     header('Location: index.php?action=agenda');
 }
 
+
+function modMechanic($id){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'view/headerview.php';
+    $mechanicToMod = new Mechanic();
+    $mechanicSearch = $mechanicToMod->getOneMechanic($dbh,$id);
+    include 'model/addmechanicModel.php';
+    editAMechanic($dbh,$mechanicSearch);   //Pasamos el registro deseado al model
+
+}
+
 ?>

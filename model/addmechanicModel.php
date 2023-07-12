@@ -20,4 +20,38 @@ function newMechanic($dbh){
           }
     }
 }
+
+function editAMechanic($dbh,$mechanic_search){
+  
+  foreach ($mechanic_search as $mech ) {
+    $mechanic_name = $mech['name'];
+    $mechanic_direction = $mech['address'];
+    $mechanic_city = $mech['city'];
+    $mechanic_nif = $mech['nif'];
+    $mechanic_phone = $mech['phone'];
+    $id = $mech['id_mechanic'];
+    //Pasamos los datos al formulario
+    include 'view/editmechanicview.php';
+  }
+
+  //recogemos datos y los pasamos a la base
+
+  // Procesamo el formulario y guardamos los datos en la BD.
+  if (isset($_POST['modMechanic'])) {
+
+    $mechanic_name =$_POST['name'];
+    $mechanic_direction = $_POST['address'];
+    $mechanic_city= $_POST['city'];
+    $mechanic_nif= $_POST['nif'];
+    $mechanic_phone= $_POST['phone'];
+    // guardamos los datos en la base de datos
+    $mechanicToChange = new Mechanic();
+    $mechanicToChange-editAMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id);
+
+    //una vez guardados, redirigimos a la p�gina principal
+    header("Location: index.php");
+    exit();
+
+  }
+}
 ?>

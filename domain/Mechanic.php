@@ -57,4 +57,40 @@ class Mechanic{
         echo "ERROR: " . $e->getMessage();
       }
     }
+
+    function editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id){
+      try {
+        //configuramos el prepared statement
+        $stmt = $dbh->prepare("UPDATE mechanic_store SET name = :name, address = :address, city = :city, phone = :phone, nif = :nif WHERE id_mechanic = :id");
+        $stmt->bindParam(':name', $mechanic_name, PDO::PARAM_STR);
+        $stmt->bindParam(':address', $mechanic_direction, PDO::PARAM_STR);
+        $stmt->bindParam(':city', $mechanic_city, PDO::PARAM_STR);
+        $stmt->bindParam(':phone', $mechanic_phone, PDO::PARAM_STR);
+        $stmt->bindParam(':nif', $mechanic_nif, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+  
+        $stmt->execute();
+      } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+        //TODO
+      }
+    }
+
+    function getOneMechanic($dbh,$id){
+      try {
+    
+        $stmt = $dbh->prepare("SELECT id_mechanic, name, address, city, phone, nif FROM mechanic_store WHERE id_mechanic = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (!$resultado) { // Si no existe 
+          echo 'SIN RESULTADO'; //TODO fixit
+        }
+    
+      } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+        redirect('errorpagePDO_view.php');
+      }
+      return $resultado;
+    }
 }

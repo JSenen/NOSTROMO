@@ -32,7 +32,7 @@ function iniAgenda($dbh, $listmechanic){
               <td><?php echo $mechanic['city'];?></td>
               <td><?php echo $mechanic['phone'];?></td>
               <td><?php echo $mechanic['type'];?></td>
-              <td><a href="#" class="btn btn-primary">Editar</a></td>
+              <td><a href="index.php?idlorry=<?php echo $mechanic['id_mechanic']?>&action=modMechanic" class="btn btn-primary">Editar</a></td>
               <td><a href="index.php?idlorry=<?php echo $mechanic['id_mechanic']?>&action=eraseMechanic" class="btn btn-danger">Borrar</a></td>
             </tr>
   
