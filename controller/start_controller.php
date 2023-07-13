@@ -71,7 +71,6 @@ function eraseMechanic($id){
 function modMechanic($id){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
-    include 'view/headerview.php';
     $mechanicToMod = new Mechanic();
     $mechanicSearch = $mechanicToMod->getOneMechanic($dbh,$id);
     include 'model/addmechanicModel.php';

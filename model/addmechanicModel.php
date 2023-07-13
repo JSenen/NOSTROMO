@@ -1,6 +1,7 @@
 <?php
 
 include_once './domain/Mechanic.php';
+include_once './view/headerview.php';
 
 function newMechanic($dbh){
     if (isset($_POST['addAmechanic'])){
@@ -22,13 +23,13 @@ function newMechanic($dbh){
 }
 
 function editAMechanic($dbh,$mechanic_search){
-  
-  foreach ($mechanic_search as $mech ) {
-    $mechanic_name = $mech['name'];
-    $mechanic_direction = $mech['address'];
-    $mechanic_city = $mech['city'];
-    $mechanic_nif = $mech['nif'];
-    $mechanic_phone = $mech['phone'];
+
+  foreach ($mechanic_search as $mech) {
+    $mechanicname = $mech['name'];
+    $mechanicdirection = $mech['address'];
+    $mechaniccity = $mech['city'];
+    $mechanicnif = $mech['nif'];
+    $mechanicphone = $mech['phone'];
     $id = $mech['id_mechanic'];
     //Pasamos los datos al formulario
     include 'view/editmechanicview.php';
@@ -46,10 +47,12 @@ function editAMechanic($dbh,$mechanic_search){
     $mechanic_phone= $_POST['phone'];
     // guardamos los datos en la base de datos
     $mechanicToChange = new Mechanic();
-    $mechanicToChange-editAMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id);
-
+    $mechanicToChange->editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id);
     //una vez guardados, redirigimos a la p�gina principal
-    header("Location: index.php");
+    // Limpiamos el búfer de salida
+    ?>
+    <script> location.replace("index.php?action=agenda"); </script>
+    <?php
     exit();
 
   }

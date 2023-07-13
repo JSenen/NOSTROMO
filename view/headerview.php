@@ -1,5 +1,5 @@
-<html>
-  
+<!DOCTYPE html>
+<html>  
   <head>
     <title>NOSTROMO LOGISTIC</title>
     <meta charset="utf-8"> 

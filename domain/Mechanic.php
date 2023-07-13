@@ -79,7 +79,7 @@ class Mechanic{
     function getOneMechanic($dbh,$id){
       try {
     
-        $stmt = $dbh->prepare("SELECT id_mechanic, name, address, city, phone, nif FROM mechanic_store WHERE id_mechanic = :id");
+        $stmt = $dbh->prepare("SELECT * FROM mechanic_store WHERE id_mechanic = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -94,3 +94,4 @@ class Mechanic{
       return $resultado;
     }
 }
+?>
