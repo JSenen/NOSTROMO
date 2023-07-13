@@ -2,6 +2,7 @@
 include './domain/Conection.php';
 require_once './domain/Lorry.php';
 require_once './domain/Mechanic.php';
+require_once './domain/Review.php';
 
 function iniweb(){
     $conecction = new Conecction();
@@ -78,4 +79,12 @@ function modMechanic($id){
 
 }
 
+function reviews(){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $reviewsList = new Review();
+    $reviews = $reviewsList->getReviews($dbh);
+    include 'model/listreviewsModel.php';
+    listReviews($dbh, $reviews);
+}
 ?>

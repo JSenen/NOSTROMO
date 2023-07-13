@@ -51,7 +51,7 @@ $(function() {
               </a>  
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-dark font-italic bg-light">
+              <a href="index.php?action=reviews" class="nav-link text-dark font-italic bg-light">
                 <i class="fa fa-cogs mr-3 text-primary fa-fw"></i>Revisiones
               </a>  
             </li>

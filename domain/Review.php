@@ -11,4 +11,16 @@ class Review{
     private long $idlorry;
 
     public function __construct(){}
+
+    public function getReviews($dbh){
+        try{
+            $stmt = $dbh->prepare("SELECT * FROM review" );
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+          } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            
+        }
+    }
 }
