@@ -10,10 +10,11 @@ function newMechanic($dbh){
         $mechanic_city = htmlspecialchars($_POST['ciudad']);
         $mechanic_phone = htmlspecialchars($_POST['telefono']);
         $mechanic_nif = htmlspecialchars($_POST['nif']);
+        $mechanic_type = htmlspecialchars($_POST['type']);
 
         $new_mechanic = new Mechanic();
         try {
-            $new_mechanic->newMechanic($dbh,$mechanic_name, $mechanic_direccion, $mechanic_city, $mechanic_phone, $mechanic_nif);
+            $new_mechanic->newMechanic($dbh,$mechanic_name, $mechanic_direccion, $mechanic_city, $mechanic_phone, $mechanic_nif, $mechanic_type);
            
           } catch (Exception $e) {
             // Manejar la excepción aquí
@@ -31,6 +32,7 @@ function editAMechanic($dbh,$mechanic_search){
     $mechanicnif = $mech['nif'];
     $mechanicphone = $mech['phone'];
     $id = $mech['id_mechanic'];
+    $type = $mech['type'];
     //Pasamos los datos al formulario
     include 'view/editmechanicview.php';
   }
@@ -45,9 +47,10 @@ function editAMechanic($dbh,$mechanic_search){
     $mechanic_city= $_POST['city'];
     $mechanic_nif= $_POST['nif'];
     $mechanic_phone= $_POST['phone'];
+    $mechanic_type = $_POST['type'];
     // guardamos los datos en la base de datos
     $mechanicToChange = new Mechanic();
-    $mechanicToChange->editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id);
+    $mechanicToChange->editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id, $mechanic_type);
     //una vez guardados, redirigimos a la p�gina principal
     // Limpiamos el búfer de salida
     ?>

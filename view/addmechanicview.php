@@ -21,6 +21,10 @@
       <label for="mechanicNIf">NIF</label>
       <input type="text" class="form-control" name="nif" id="nif" placeholder="Inserte nif">
     </div>
+    <div class="form-group">
+      <label for="mechanicNIf">TIPO</label>
+      <input type="text" class="form-control" name="type" id="type" placeholder="Tienda ... Taller ...">
+    </div>
     
     <button type="submit" class="btn btn-primary" name="addAmechanic">Añadir</button>
   </form>

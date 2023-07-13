@@ -25,15 +25,16 @@ class Mechanic{
         }
     }
 
-    public function newMechanic($dbh, $mechanic_name, $mechanic_direccion, $mechanic_city, $mechanic_phone, $mechanic_nif){
+    public function newMechanic($dbh, $mechanic_name, $mechanic_direccion, $mechanic_city, $mechanic_phone, $mechanic_nif, $mechanic_type){
         $name = strtoupper($mechanic_name);
         $direction = strtoupper($mechanic_direccion);
         $city = strtoupper($mechanic_city);
         $phone = strtoupper($mechanic_phone);
         $nif = strtoupper($mechanic_nif);
+        $type = strtoupper($mechanic_type);
        
     try {
-        $sql = "INSERT INTO mechanic_store (name, address, city, phone, nif) VALUES (:name,:address,:city,:phone,:nif)";
+        $sql = "INSERT INTO mechanic_store (name, address, city, phone, nif, type) VALUES (:name,:address,:city,:phone,:nif, :type)";
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':address', $direction, PDO::PARAM_STR);
@@ -41,6 +42,8 @@ class Mechanic{
         $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
         $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
         $stmt->bindParam(':nif', $nif, PDO::PARAM_STR);
+        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+
         $stmt->execute();
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
@@ -58,16 +61,17 @@ class Mechanic{
       }
     }
 
-    function editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id){
+    function editMechanic($dbh, $mechanic_name, $mechanic_direction, $mechanic_city, $mechanic_nif, $mechanic_phone, $id, $mechanic_type){
       try {
         //configuramos el prepared statement
-        $stmt = $dbh->prepare("UPDATE mechanic_store SET name = :name, address = :address, city = :city, phone = :phone, nif = :nif WHERE id_mechanic = :id");
+        $stmt = $dbh->prepare("UPDATE mechanic_store SET name = :name, address = :address, city = :city, phone = :phone, nif = :nif, type = :type WHERE id_mechanic = :id");
         $stmt->bindParam(':name', $mechanic_name, PDO::PARAM_STR);
         $stmt->bindParam(':address', $mechanic_direction, PDO::PARAM_STR);
         $stmt->bindParam(':city', $mechanic_city, PDO::PARAM_STR);
         $stmt->bindParam(':phone', $mechanic_phone, PDO::PARAM_STR);
         $stmt->bindParam(':nif', $mechanic_nif, PDO::PARAM_STR);
         $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->bindParam(':type', $mechanic_type, PDO::PARAM_STR);
   
         $stmt->execute();
       } catch (PDOException $e) {
