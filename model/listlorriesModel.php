@@ -49,7 +49,7 @@ function listLorrys($lorries)
               }
               ?>
             </td>
-            <td style="vertical-align: middle;"><?php echo $lorry['brand'];?></td>
+            <td style="vertical-align: middle; font-weight: bold; font-size: 18px;"><?php echo $lorry['brand'];?></td>
             <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>
             <td style="vertical-align: middle;"><?php echo $lorry['model'];?></td>
             <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark"><i class="fas fa-cog"> Taller</a></td>

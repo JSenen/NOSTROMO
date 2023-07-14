@@ -1,5 +1,6 @@
 <?php
 include_once './domain/Lorry.php';
+include_once './domain/Review.php';
 
 function addNewLorry($dbh)
 {
@@ -84,5 +85,30 @@ function editLorry($dbh,$lorry){
             echo 'Se ha producido un error' . $e->getMessage();
         }
   }
-  
+
+  function newReview($dbh,$id){
+    if (isset($_POST['addReviewToLorry'])) {
+      // Obtenemos los datos del formulario, asegurándonos de que son válidos.
+      $review_fechain = $_POST['datein'];
+      $review_fechaout = $_POST['dateout'];
+      $review_commnets = $_POST['comments'];
+      $review_kmreview = $_POST['kmreview'];
+      $review_reviewprice = $_POST['reviewprice'];
+      $review_reviewodc = $_POST['reviewodc'];
+      
+
+          // guardamos los datos en la base de datos
+          // Creamos un objeto revisión
+          $NewReview = new Review();
+          try {
+              $NewReview->addReviewToLorry($dbh,$id,$review_fechain,$review_fechaout,$review_commnets,$review_kmreview,$review_reviewodc,$review_reviewprice);
+              ?>
+              <script> location.replace("index.php"); </script>
+             <?php
+          } catch (Exception $e) {
+              // Manejar la excepción aquí
+              echo 'Ha ocurrido un error: ' . $e->getMessage();
+          }
+      }
+  }  
 ?>

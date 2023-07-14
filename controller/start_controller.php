@@ -94,7 +94,16 @@ function seeReviewsLoory($id,$brand){
     $reviewsLorry = new Review();
     $result = $reviewsLorry->getReviewsByLorry($dbh,$id);
     include 'model/listreviewsModel.php';
-    listReviews($dbh, $result, $brand);
+    listReviews($dbh, $result, $brand, $id);
 
+}
+
+function addReviewToLorry($id,$brand){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'model/addlorryModel.php';
+    include_once 'view/headerview.php';
+    include 'view/addlorryReviewView.php';
+    newReview($dbh,$id);
 }
 ?>

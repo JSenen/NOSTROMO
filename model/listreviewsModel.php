@@ -2,7 +2,7 @@
 include_once('./domain/Review.php');
 include_once('./view/headerview.php');
 
-function listReviews($dbh,$reviews,$brand)
+function listReviews($dbh,$reviews,$brand, $id)
 {
   ?>
   <div class="contenido">
@@ -24,19 +24,22 @@ function listReviews($dbh,$reviews,$brand)
         </tr>
       </thead>
       <tbody>
-
         <?php
         foreach ($reviews as $review) {
+          $id_lorry = $review['idlorry_review'];
           ?>
           <tr>
-            <td><?php if($brand != '') {
-              echo $brand;
+          <td style="font-weight: bold; font-size: 18px;">
+              <?php
+              if ($brand != '') {
+                echo $brand;
               } else {
                 $rw = new Review();
-                $plate = $rw->getBradLorry($dbh,$review['idlorry_review']);
+                $plate = $rw->getBradLorry($dbh, $review['idlorry_review']);
                 echo $plate;
               }
-               ?></td>
+              ?>
+            </td>
             <td><?php echo date('d/m/Y', strtotime($review['date_in'])); ?></td>
             <td><?php echo date('d/m/Y', strtotime($review['date_out'])); ?></td>
             <td><?php echo $review['km_review'];?></td>
@@ -86,10 +89,11 @@ function listReviews($dbh,$reviews,$brand)
   if ($brand){
     ?>
   <div class="content">
-    <a href="index.php?action=addReviewToLorry&idlorry=<?php echo $review['idlorry_review']; ?>" class="btn btn-primary">+ AÑADIR REVISION</a>
+    <a href="index.php?action=addReviewToLorry&idlorry=<?php echo $id; ?>" class="btn btn-primary">+ AÑADIR REVISION</a>
   </div>
   <?php
   }
 }
+
 include './view/footerview.php';
 ?>
