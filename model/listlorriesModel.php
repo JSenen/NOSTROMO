@@ -10,12 +10,13 @@ function listLorrys($lorries)
     <table class="table table-striped table-fixed" id="tableLorries">
       <thead>
         <tr>
-          <th class="text-info" style="width: 8.5%">MATRICULA</th>
-          <th class="text-info" style="width: 8.5%">KM</th>
-          <th class="text-info" style="width: 6%">MODELO</th>
-          <th class="text-info" style="width: 6%">Revisiones</th>
-          <th class="text-info" style="width: 6%">Editar</th>
-          <th class="text-info" style="width: 6%">Borrar</th>
+          <th class="text-info" style="width: 14%">Imagen</th>
+          <th class="text-info" style="width: 14%">MATRICULA</th>
+          <th class="text-info" style="width: 14%">KM</th>
+          <th class="text-info" style="width: 14%">MODELO</th>
+          <th class="text-info" style="width: 7%">Revisiones</th>
+          <th class="text-info" style="width: 7%">Editar</th>
+          <th class="text-info" style="width: 7%">Borrar</th>
           
 
         </tr>
@@ -27,12 +28,33 @@ function listLorrys($lorries)
           ?>
 
           <tr>
-            <td ><?php echo $lorry['brand'];?></td>
-            <td><?php echo $lorry['km'];?></td>
-            <td><?php echo $lorry['model'];?></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark">Taller</a></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary">Editar</a></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger">Borrar</a></td>
+            <td>
+              <?php
+              if ($lorry['lorry_photo']) {
+                // Obtener la imagen de la base de datos
+                $photoData = $lorry['lorry_photo'];
+                $photoSrc = 'data:image/jpeg;base64,' . base64_encode($photoData);
+                ?>
+                <div class="photo-container" style="width: 150px; height: 150px; overflow: hidden;">
+                  <img src="<?php echo $photoSrc; ?>" alt="Foto" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <?php
+              } else {
+                // Mostrar una imagen por defecto si no hay foto
+                ?>
+                <div class="photo-container" style="width: 100px; height: 100px; background-color: #f0f0f0; text-align: center;">
+                  <span style="line-height: 100px; font-size: 24px; color: #777;">Sin foto</span>
+                </div>
+                <?php
+              }
+              ?>
+            </td>
+            <td style="vertical-align: middle;"><?php echo $lorry['brand'];?></td>
+            <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>
+            <td style="vertical-align: middle;"><?php echo $lorry['model'];?></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark"><i class="fas fa-cog"> Taller</a></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Editar</a></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger"><i class="fas fa-trash"></i> Borrar</a></td>
           </tr>
 
           <?php

@@ -41,15 +41,17 @@ function listReviews($dbh,$reviews,$brand)
             <td><?php echo date('d/m/Y', strtotime($review['date_out'])); ?></td>
             <td><?php echo $review['km_review'];?></td>
             <td><?php echo $review['price'];?></td>
-            <td><?php if ($review['exported'] == 1){
-                        echo 'TRUE';
-            }else{
-                        echo 'FALSE';
+            <td><?php if ($review['exported'] == 1){?>
+                        <i class="fas fa-check" style="color: green;"></i>
+                <?php
+            }else{ ?>
+                        <i class="fas fa-times" style="color: red;"></i>
+                <?php
             };?></td>
             <td><?php echo $review['comments'];?></td>
             <td><?php echo $review['odc'];?></td>
-            <td><a href="#" class="btn btn-primary">Editar</a></td>
-            <td><a href="#" class="btn btn-danger">Borrar</a></td>
+            <td><a href="#" class="btn btn-primary"><i class="fas fa-pencil-alt"> Editar</a></td>
+            <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"> Borrar</a></td>
           </tr>
 
           <?php
@@ -81,10 +83,10 @@ function listReviews($dbh,$reviews,$brand)
     });
   </script>
   <?php
-  if (!$brand){
+  if ($brand){
     ?>
   <div class="content">
-    <a href="index.php?action=addReviewToLorry" class="btn btn-primary">+ AÑADIR REVISION</a>
+    <a href="index.php?action=addReviewToLorry&idlorry=<?php echo $review['idlorry_review']; ?>" class="btn btn-primary">+ AÑADIR REVISION</a>
   </div>
   <?php
   }
