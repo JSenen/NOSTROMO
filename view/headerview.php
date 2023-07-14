@@ -71,7 +71,7 @@ $(function() {
     <div class="page-content p-5 text-gray" id="content">
       
     <!-- Toggle button -->
-        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bolder">Esconder</small></button>
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bolder"></small></button>
       
 
       

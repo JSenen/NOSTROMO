@@ -41,10 +41,12 @@ function listReviews($dbh,$reviews,$brand)
             <td><?php echo date('d/m/Y', strtotime($review['date_out'])); ?></td>
             <td><?php echo $review['km_review'];?></td>
             <td><?php echo $review['price'];?></td>
-            <td><?php if ($review['exported'] == 1){
-                        echo 'TRUE';
-            }else{
-                        echo 'FALSE';
+            <td><?php if ($review['exported'] == 1){?>
+                        <i class="fas fa-check" style="color: green;"></i>
+                <?php
+            }else{ ?>
+                        <i class="fas fa-times" style="color: red;"></i>
+                <?php
             };?></td>
             <td><?php echo $review['comments'];?></td>
             <td><?php echo $review['odc'];?></td>
