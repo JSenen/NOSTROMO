@@ -83,7 +83,7 @@ function listReviews($dbh,$reviews,$brand)
     });
   </script>
   <?php
-  if (!$brand){
+  if ($brand){
     ?>
   <div class="content">
     <a href="index.php?action=addReviewToLorry" class="btn btn-primary">+ AÑADIR REVISION</a>
