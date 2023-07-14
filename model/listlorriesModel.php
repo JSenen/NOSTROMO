@@ -49,12 +49,12 @@ function listLorrys($lorries)
               }
               ?>
             </td>
-            <td ><?php echo $lorry['brand'];?></td>
-            <td><?php echo $lorry['km'];?></td>
-            <td><?php echo $lorry['model'];?></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark"><i class="fas fa-cog"> Taller</a></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Editar</a></td>
-            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger"><i class="fas fa-trash"></i> Borrar</a></td>
+            <td style="vertical-align: middle;"><?php echo $lorry['brand'];?></td>
+            <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>
+            <td style="vertical-align: middle;"><?php echo $lorry['model'];?></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark"><i class="fas fa-cog"> Taller</a></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Editar</a></td>
+            <td style="vertical-align: middle;"><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger"><i class="fas fa-trash"></i> Borrar</a></td>
           </tr>
 
           <?php
