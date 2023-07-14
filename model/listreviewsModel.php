@@ -48,8 +48,8 @@ function listReviews($dbh,$reviews,$brand)
             };?></td>
             <td><?php echo $review['comments'];?></td>
             <td><?php echo $review['odc'];?></td>
-            <td><a href="#" class="btn btn-primary">Editar</a></td>
-            <td><a href="#" class="btn btn-danger">Borrar</a></td>
+            <td><a href="#" class="btn btn-primary"><i class="fas fa-pencil-alt"> Editar</a></td>
+            <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"> Borrar</a></td>
           </tr>
 
           <?php
