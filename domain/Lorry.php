@@ -5,6 +5,7 @@ class Lorry
     private String $brand;
     private int $km;
     private String $model;
+    private blob $photo;
 
 public function __construct(){}
 
@@ -20,16 +21,17 @@ public function getLorries($dbh){
     }
 }
 
-public function addLorries($dbh, $brand, $model, $km){
+public function addLorries($dbh, $brand, $model, $km, $photo){
   $brand = strtoupper($brand);
   $model = strtoupper($model);
   $km = strtoupper($km);
     try {
-        $sql = "INSERT INTO lorry (brand, model, km) VALUES (:brand,:model,:km)";
+        $sql = "INSERT INTO lorry (brand, model, km, lorry_photo) VALUES (:brand,:model,:km, :photo)";
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
         $stmt->bindParam(':model', $model, PDO::PARAM_STR);
         $stmt->bindParam(':km', $km, PDO::PARAM_STR);
+        $stmt->bindParam(':photo',$photo, PDO::PARAM_LOB);
         $stmt->execute();
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();

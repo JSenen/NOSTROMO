@@ -1,33 +1,40 @@
 <?php
 include_once './domain/Lorry.php';
 
-function addNewLorry($dbh){
-
+function addNewLorry($dbh)
+{
     if (isset($_POST['addALorry'])) {
-        // Obtenemos los datos del formulario, asegur�ndonos que son v�lidos.
+        // Obtenemos los datos del formulario, asegurándonos de que son válidos.
         $lorry_matricula = htmlspecialchars($_POST['matricula']);
         $lorry_modelo = htmlspecialchars($_POST['modelo']);
         $lorry_km = $_POST['kmlorry'];
-        // Comprobar si los campos han sido relelnados
-        if ($lorry_matricula == '' || $lorry_modelo == '' || $lorry_km == '') {
-          // Genera el mensaje de error
-          $error = 'ERROR: Por favor, introduce todos los campos requeridos.!';
-    
+
+        // Verificar si los campos han sido rellenados
+        if ($lorry_matricula === '' || $lorry_modelo === '' || $lorry_km === '') {
+            // Genera el mensaje de error
+            $error = 'ERROR: Por favor, introduce todos los campos requeridos.';
         } else {
-          // guardamos los datos en la base de datos
-          // Creamos un objeto camión
-          $Newlorry = new Lorry();
-          try {
-            $Newlorry->addLorries($dbh,$lorry_matricula,$lorry_modelo,$lorry_km);
-            header('Location: ./index.php');
-            exit();
-          } catch (Exception $e) {
-            // Manejar la excepción aquí
-            echo 'Ha ocurrido un error: ' . $e->getMessage();
-          }
-    
+            // Comprobar si se subió correctamente un archivo
+            if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+                $lorry_photo = file_get_contents($_FILES['photo']['tmp_name']);
+            } else {
+                // No se subió un archivo válido
+                $lorry_photo = null; // Otra acción o valor por defecto
+            }
+
+            // guardamos los datos en la base de datos
+            // Creamos un objeto camión
+            $Newlorry = new Lorry();
+            try {
+                $Newlorry->addLorries($dbh, $lorry_matricula, $lorry_modelo, $lorry_km, $lorry_photo);
+                header('Location: ./index.php');
+                exit();
+            } catch (Exception $e) {
+                // Manejar la excepción aquí
+                echo 'Ha ocurrido un error: ' . $e->getMessage();
+            }
         }
-      }
+    }
 }
 
 function editLorry($dbh,$lorry){
