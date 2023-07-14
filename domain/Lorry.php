@@ -42,7 +42,7 @@ public function addLorries($dbh, $brand, $model, $km, $photo){
 public function getOneLorry($dbh, $id){
   try {
     
-    $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km FROM lorry WHERE id_lorry = :id");
+    $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km, lorry_photo FROM lorry WHERE id_lorry = :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_STR);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,14 +57,15 @@ public function getOneLorry($dbh, $id){
   return $resultado;
 }
 
-function modyLorry($dbh, $brand, $model, $km, $id){
+function modyLorry($dbh, $brand, $model, $km, $lorryphoto, $id){
  try {
       //configuramos el prepared statement
-      $stmt = $dbh->prepare("UPDATE lorry SET brand = :brand, model = :model, km = :km WHERE id_lorry = :id");
+      $stmt = $dbh->prepare("UPDATE lorry SET brand = :brand, model = :model, km = :km ,lorry_photo = :lorryphoto WHERE id_lorry = :id");
       $stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
       $stmt->bindParam(':model', $model, PDO::PARAM_STR);
       $stmt->bindParam(':km', $km, PDO::PARAM_INT);
       $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+      $stmt->bindParam('lorryphoto', $lorryphoto, PDO::PARAM_LOB);
 
       $stmt->execute();
     } catch (PDOException $e) {
