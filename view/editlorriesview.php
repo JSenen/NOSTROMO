@@ -13,6 +13,6 @@
     <label for="lorryModel">KM</label>
     <input type="text" class="form-control" name="lorrykm" id='lorrykm' value="<?php echo $lorrykm ?>">
   </div>
-  <button type="submit" class="btn btn-primary" name="modLorry">Submit</button>
+  <button type="submit" class="btn btn-primary" name="modLorry">Modificar</button>
 </form>
 </div>

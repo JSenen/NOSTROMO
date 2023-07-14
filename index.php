@@ -14,6 +14,11 @@ if (!empty($_GET['idlorry'])){
 }else{
   $idLorry = '';
 }
+if (!empty($_GET['matricula'])){
+  $brand = $_GET['matricula'];
+}else{
+  $brand = '';
+}
 
 //Obtenemos el controlador. Si no por defecto
 $controller = DEFAULT_CONTROLLER;
@@ -32,7 +37,7 @@ else
 
 //Si action es una función, ejecutamos el script
 if (is_callable($action))
-  $action($idLorry);
+  $action($idLorry,$brand);
 else
   die("La accion requerida no existe 404 not found");
   ?>

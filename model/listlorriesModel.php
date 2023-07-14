@@ -13,6 +13,7 @@ function listLorrys($lorries)
           <th class="text-info" style="width: 8.5%">MATRICULA</th>
           <th class="text-info" style="width: 8.5%">KM</th>
           <th class="text-info" style="width: 6%">MODELO</th>
+          <th class="text-info" style="width: 6%">Revisiones</th>
           <th class="text-info" style="width: 6%">Editar</th>
           <th class="text-info" style="width: 6%">Borrar</th>
           
@@ -29,6 +30,7 @@ function listLorrys($lorries)
             <td ><?php echo $lorry['brand'];?></td>
             <td><?php echo $lorry['km'];?></td>
             <td><?php echo $lorry['model'];?></td>
+            <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=seeReviewsLoory&matricula=<?php echo $lorry['brand']?>" class="btn btn-dark">Taller</a></td>
             <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=modLorry" class="btn btn-primary">Editar</a></td>
             <td><a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=eraseLorry" class="btn btn-danger">Borrar</a></td>
           </tr>
@@ -61,7 +63,7 @@ function listLorrys($lorries)
       });
     });
   </script>
-    <div class="content">
+  <div class="content">
     <a href="index.php?action=addLorry" class="btn btn-primary">+ AÑADIR VEHICULO</a>
   </div>
   <?php

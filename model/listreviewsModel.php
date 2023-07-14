@@ -2,7 +2,7 @@
 include_once('./domain/Review.php');
 include_once('./view/headerview.php');
 
-function listReviews($dbh,$reviews)
+function listReviews($dbh,$reviews,$brand)
 {
   ?>
   <div class="contenido">
@@ -10,11 +10,11 @@ function listReviews($dbh,$reviews)
     <table class="table table-striped table-fixed" id="tableReviews">
       <thead>
         <tr>
+          <th class="text-info" style="width: 8.5%">Matricula</th>
           <th class="text-info" style="width: 8.5%">Fecha Entrada</th>
           <th class="text-info" style="width: 8.5%">Fecha Salida</th>
           <th class="text-info" style="width: 6%">km Revision</th>
           <th class="text-info" style="width: 6%">precio</th>
-          <th class="text-info" style="width: 6%">matricula</th>
           <th class="text-info" style="width: 6%">exportado</th>
           <th class="text-info" style="width: 6%">comentarios</th>
           <th class="text-info" style="width: 6%">ODC</th>
@@ -28,14 +28,24 @@ function listReviews($dbh,$reviews)
         <?php
         foreach ($reviews as $review) {
           ?>
-
           <tr>
-            <td ><?php echo $review['date_in'];?></td>
-            <td><?php echo $review['date_out'];?></td>
+            <td><?php if($brand != '') {
+              echo $brand;
+              } else {
+                $rw = new Review();
+                $plate = $rw->getBradLorry($dbh,$review['idlorry_review']);
+                echo $plate;
+              }
+               ?></td>
+            <td><?php echo date('d/m/Y', strtotime($review['date_in'])); ?></td>
+            <td><?php echo date('d/m/Y', strtotime($review['date_out'])); ?></td>
             <td><?php echo $review['km_review'];?></td>
             <td><?php echo $review['price'];?></td>
-            <td><?php echo $review['idlorry_review'];?></td>
-            <td><?php echo $review['exported'];?></td>
+            <td><?php if ($review['exported'] == 1){
+                        echo 'TRUE';
+            }else{
+                        echo 'FALSE';
+            };?></td>
             <td><?php echo $review['comments'];?></td>
             <td><?php echo $review['odc'];?></td>
             <td><a href="#" class="btn btn-primary">Editar</a></td>
@@ -71,6 +81,13 @@ function listReviews($dbh,$reviews)
     });
   </script>
   <?php
+  if (!$brand){
+    ?>
+  <div class="content">
+    <a href="index.php?action=addReviewToLorry" class="btn btn-primary">+ AÑADIR REVISION</a>
+  </div>
+  <?php
+  }
 }
 include './view/footerview.php';
 ?>

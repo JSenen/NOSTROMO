@@ -79,12 +79,22 @@ function modMechanic($id){
 
 }
 
-function reviews(){
+function reviews($idLorry,$brand){
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
     $reviewsList = new Review();
     $reviews = $reviewsList->getReviews($dbh);
     include 'model/listreviewsModel.php';
-    listReviews($dbh, $reviews);
+    listReviews($dbh, $reviews, $brand);
+}
+
+function seeReviewsLoory($id,$brand){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $reviewsLorry = new Review();
+    $result = $reviewsLorry->getReviewsByLorry($dbh,$id);
+    include 'model/listreviewsModel.php';
+    listReviews($dbh, $result, $brand);
+
 }
 ?>
