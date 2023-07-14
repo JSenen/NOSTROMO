@@ -11,7 +11,7 @@ public function __construct(){}
 
 public function getLorries($dbh){
     try{
-        $stmt = $dbh->prepare("SELECT id_lorry, brand, km, model FROM lorry" );
+        $stmt = $dbh->prepare("SELECT id_lorry, brand, km, model, lorry_photo FROM lorry" );
         $stmt->execute();
         $lorries = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $lorries;
