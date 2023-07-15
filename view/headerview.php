@@ -37,35 +37,40 @@ $(function() {
     </script>
     <!-- Start vertical navbar -->
     <header id="header">
-       <div class="vertical-nav bg-white" id="sidebar">
+       <div class="vertical-nav" id="sidebar">
           <div class="py-4 px-3 mb-2 mt-2 bg-dark">
             <div class="align-items-center" id="half">    
             <div id="image" >
-             <img src="resources/img/NOSTROMO-LOGISTIC_logo.png" alt="...">
+             <img src="resources/img/NOSTROMO.png" alt="...">
            </div>
             </div>
           </div>
-          <p class="text-gray font-weight-bold text-uppercase px-3 small pb-3 mb-2 mt-3">Main</p>
-          <ul class="nav flex-column bg-white mb-0">
+          <p class="text-white font-weight-bold text-uppercase px-3 small pb-3 mb-2 mt-3">menu</p>
+          <ul class="nav flex-column bg-grey mb-0">
             <li class="nav-item">
-              <a href="index.php" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-truck mr-3 text-primary fa-fw"></i>Vehiculos
+              <a href="index.php" class="nav-link text-white font-italic bg-trasparent">
+                <i class="fa fa-truck mr-3 text-white fa-fw"></i>Vehiculos
               </a>  
             </li>
             <li class="nav-item">
-              <a href="index.php?action=reviews" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-cogs mr-3 text-primary fa-fw"></i>Revisiones
+              <a href="index.php?action=reviews" class="nav-link text-white font-italic bg-trasparent">
+                <i class="fa fa-cogs mr-3 text-white fa-fw"></i>Revisiones
               </a>  
             </li>
             <li class="nav-item">
-              <a href="index.php?action=agenda" class="nav-link text-dark font-italic bg-light">
-                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+              <a href="index.php?action=agenda" class="nav-link text-white font-italic bg-trasparent">
+                <i class="fa fa-address-card mr-3 text-white fa-fw"></i>
                 Agenda
               </a>
             </li>
           </ul>
        </div>
     </header>
+    <style>
+  .vertical-nav {
+    background-color: grey;
+  }
+  </style>
 
     <!-- Start Page content holder -->
     <div class="page-content p-5 text-gray" id="content">
