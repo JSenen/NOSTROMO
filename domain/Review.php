@@ -71,4 +71,14 @@ class Review{
             echo "ERROR: " . $e->getMessage();
         }
     }
+
+    public function eraseReview($dbh, $id){
+        try {
+            $stmt = $dbh->prepare('DELETE FROM review WHERE id_review=:id');
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+            $stmt->execute();
+          } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+          }
+    }
 }

@@ -106,4 +106,12 @@ function addReviewToLorry($id,$brand){
     include 'view/addlorryReviewView.php';
     newReview($dbh,$id);
 }
+
+function eraseReview($id_review,$brand) {
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $deletereview = new Review();
+    $deletereview->eraseReview($dbh,$id_review);
+    header('Location: index.php?action=seeReviewsLoory&matricula='.$brand);
+}
 ?>
