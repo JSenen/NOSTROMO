@@ -96,13 +96,14 @@ function editLorry($dbh,$lorry){
       $review_kmreview = $_POST['kmreview'];
       $review_reviewprice = $_POST['reviewprice'];
       $review_reviewodc = $_POST['reviewodc'];
+      $review_reviewmechanic = $_POST['reviewmechanic'];
       
 
           // guardamos los datos en la base de datos
           // Creamos un objeto revisión
           $NewReview = new Review();
           try {
-              $NewReview->addReviewToLorry($dbh,$id,$review_fechain,$review_fechaout,$review_commnets,$review_kmreview,$review_reviewodc,$review_reviewprice);
+              $NewReview->addReviewToLorry($dbh,$id,$review_fechain,$review_fechaout,$review_commnets,$review_kmreview,$review_reviewodc,$review_reviewprice,$review_reviewmechanic);
               ?>
               <script> location.replace("index.php"); </script>
              <?php

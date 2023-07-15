@@ -49,7 +49,7 @@ class Review{
         }
     }
 
-    public function addReviewToLorry($dbh, $id, $review_fechain, $review_fechaout, $review_commnets, $review_kmreview, $review_reviewodc, $review_reviewprice) {
+    public function addReviewToLorry($dbh, $id, $review_fechain, $review_fechaout, $review_commnets, $review_kmreview, $review_reviewodc, $review_reviewprice,$review_reviewmechanic) {
         $comments = strtoupper($review_commnets);
         $odc = strtoupper($review_reviewodc);
         
@@ -67,6 +67,18 @@ class Review{
             $stmt->bindParam(':km', $review_kmreview, PDO::PARAM_STR);
             $stmt->bindParam(':price', $review_reviewprice, PDO::PARAM_STR);
             $stmt->execute();
+
+            // Obtener el ID de la última inserción en la tabla review
+            $review_id = $dbh->lastInsertId();
+
+            // Insertar en la tabla review_store
+            $sql_store = "INSERT INTO review_store (id_review, id_mechanic) VALUES (:reviewid, :mechanicid)";
+            $stmt_store = $dbh->prepare($sql_store);
+            $stmt_store->bindValue(':reviewid', $review_id, PDO::PARAM_INT);
+            $stmt_store->bindValue(':mechanicid', $review_reviewmechanic, PDO::PARAM_INT);
+            $stmt_store->execute();
+
+
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }

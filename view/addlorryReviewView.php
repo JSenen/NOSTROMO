@@ -1,3 +1,8 @@
+<?php
+include_once './domain/Mechanic.php';
+$mechaniclist = new Mechanic();
+$listmechanic = $mechaniclist->getMechanics($dbh);
+?>
 <div class="page-content p-5 text-gray" id="content"> 
  <!-- content -->  
   <form action="" method="post">
@@ -25,7 +30,14 @@
       <label for="ODC">ODC</label>
       <input type="text" class="form-control" name="reviewodc" id="reviewodc" placeholder="ODC">
     </div>
-    
+    <div class="form-group">
+      <label for="mecanico">Mecánico</label>
+      <select class="form-control" name="reviewmechanic" id="reviewmechanic">
+        <?php foreach ($listmechanic as $mechanic) : ?>
+          <option value="<?php echo $mechanic['id_mechanic']; ?>"><?php echo $mechanic['name']; ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>  
     <button type="submit" class="btn btn-primary" name="addReviewToLorry">Añadir</button>
     <a href="index.php?action=reviews" class="btn btn-secondary">Regresar</a>
   </form>
