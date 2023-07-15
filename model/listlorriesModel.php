@@ -42,8 +42,8 @@ function listLorrys($lorries)
               } else {
                 // Mostrar una imagen por defecto si no hay foto
                 ?>
-                <div class="photo-container" style="width: 100px; height: 100px; background-color: #f0f0f0; text-align: center;">
-                  <span style="line-height: 100px; font-size: 24px; color: #777;">Sin foto</span>
+                <div class="photo-container" style="width: 150px; height: 150px; overflow: hidden;">
+                  <img src="./resources/img/NO_IMG.png" alt="Foto" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <?php
               }
