@@ -36,6 +36,7 @@ function addNewLorry($dbh)
             }
         }
     }
+    include './view/footerview.php';
 }
 
 function editLorry($dbh,$lorry){

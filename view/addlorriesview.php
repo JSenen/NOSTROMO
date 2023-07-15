@@ -18,5 +18,6 @@
     <input type="file" class="form-control-file" name="photo" id="photo">
   </div>
   <button type="submit" class="btn btn-primary" name="addALorry">Añadir</button>
+  <a href="index.php" class="btn btn-secondary">Regresar</a>
 </form>
 </div>

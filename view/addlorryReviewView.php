@@ -27,5 +27,6 @@
     </div>
     
     <button type="submit" class="btn btn-primary" name="addReviewToLorry">Añadir</button>
+    <a href="index.php?action=reviews" class="btn btn-secondary">Regresar</a>
   </form>
 </div>
