@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="km">Km</label>
-      <input type="text" class="form-control" name="kmreview" id="kmreview" placeholder="Km en el momento trabajo">
+      <input type="text" class="form-control" name="kmreview" id="kmreview" placeholder="Km en el momento del trabajo" pattern="[0-9]+(\.[0-9]+)?" title="Solo se permiten números">
     </div>
     <div class="form-group">
       <label for="Precio">Precio</label>

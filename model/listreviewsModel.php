@@ -10,13 +10,13 @@ function listReviews($dbh,$reviews,$brand, $id)
     <table class="table table-striped table-fixed" id="tableReviews">
       <thead>
         <tr>
-          <th class="text-info" style="width: 8.5%">Matricula</th>
-          <th class="text-info" style="width: 8.5%">Fecha Entrada</th>
-          <th class="text-info" style="width: 8.5%">Fecha Salida</th>
-          <th class="text-info" style="width: 6%">km Revision</th>
+          <th class="text-info" style="width: 3%">Matricula</th>
+          <th class="text-info" style="width: 4%">Entrada</th>
+          <th class="text-info" style="width: 4%">Salida</th>
+          <th class="text-info" style="width: 6%">Km</th>
           <th class="text-info" style="width: 6%">precio</th>
-          <th class="text-info" style="width: 6%">exportado</th>
-          <th class="text-info" style="width: 6%">comentarios</th>
+          <th class="text-info" style="width: 1%">Exp</th>
+          <th class="text-info" style="width: 15%">comentarios</th>
           <th class="text-info" style="width: 6%">ODC</th>
           <th class="text-info" style="width: 6%">Editar</th>
           <th class="text-info" style="width: 6%">Borrar</th>

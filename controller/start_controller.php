@@ -85,7 +85,7 @@ function reviews($idLorry,$brand){
     $reviewsList = new Review();
     $reviews = $reviewsList->getReviews($dbh);
     include 'model/listreviewsModel.php';
-    listReviews($dbh, $reviews, $brand);
+    listReviews($dbh, $reviews, $brand, $idLorry);
 }
 
 function seeReviewsLoory($id,$brand){
