@@ -1,5 +1,6 @@
 <?php
 include_once('./domain/Review.php');
+include_once('./domain/Mechanic.php');
 include_once('./view/headerview.php');
 
 function listReviews($dbh,$reviews,$brand, $id)
@@ -18,6 +19,7 @@ function listReviews($dbh,$reviews,$brand, $id)
           <th class="text-info" style="width: 1%">Exp</th>
           <th class="text-info" style="width: 15%">comentarios</th>
           <th class="text-info" style="width: 6%">ODC</th>
+          <th class="text-info" style="width: 6%">Taller/Mecanico</th>
           <th class="text-info" style="width: 6%">Editar</th>
           <th class="text-info" style="width: 6%">Borrar</th>
           
@@ -53,6 +55,11 @@ function listReviews($dbh,$reviews,$brand, $id)
             };?></td>
             <td><?php echo $review['comments'];?></td>
             <td><?php echo $review['odc'];?></td>
+            <td><?php  
+                $idreview = $review['id_review'];
+                $getmechanic = new Mechanic();
+                $mechanic = $getmechanic->getOneMechanicByReview($dbh, $idreview);
+                echo isset($mechanic['name']) ? $mechanic['name'] : 'Valor no disponible';?></td>
             <td><a href="#" class="btn btn-primary"><i class="fas fa-pencil-alt"> Editar</a></td>
             <td><a href="index.php?idlorry=<?php echo $review['id_review']?>&action=eraseReview&matricula=<?php echo $brand?>" class="btn btn-danger"><i class="fas fa-trash"> Borrar</a></td>
           </tr>

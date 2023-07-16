@@ -86,9 +86,15 @@ class Review{
 
     public function eraseReview($dbh, $id){
         try {
-            $stmt = $dbh->prepare('DELETE FROM review WHERE id_review=:id');
-            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+            $stmt = $dbh->prepare('DELETE FROM review_store WHERE id_review=:id');
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
+
+            $stmt = $dbh->prepare('DELETE FROM review WHERE id_review=:id');
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+
           } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
           }

@@ -97,5 +97,31 @@ class Mechanic{
       }
       return $resultado;
     }
+
+    function getOneMechanicByReview($dbh, $id){
+      try {
+        $stmt = $dbh->prepare("SELECT id_mechanic FROM review_store WHERE id_review = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $store = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        if (!$store) { // Si no existe 
+          return '---';
+        } else {
+          $store_id = $store[0];
+          
+        
+        $stmt = $dbh->prepare("SELECT name FROM mechanic_store WHERE id_mechanic = :id");
+        $stmt->bindParam(':id', $store_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+      }
+        return $resultado;
+      } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+        redirect('errorpagePDO_view.php');
+      }
+    }
 }
 ?>
