@@ -112,6 +112,6 @@ function eraseReview($id_review,$brand) {
     $dbh = $conecction->getConection();
     $deletereview = new Review();
     $deletereview->eraseReview($dbh,$id_review);
-    header('Location: index.php?action=seeReviewsLoory&matricula='.$brand);
+    header('Location: index.php?idlorry='.$brand.'&action=seeReviewsLoory');
 }
 ?>
