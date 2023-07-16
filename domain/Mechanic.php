@@ -103,21 +103,21 @@ class Mechanic{
         $stmt = $dbh->prepare("SELECT id_mechanic FROM review_store WHERE id_review = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $store = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $store = $stmt->fetch(PDO::FETCH_ASSOC); // Utiliza fetch en lugar de fetchAll para devolver el único dato
         
         if (!$store) { // Si no existe 
           return '---';
         } else {
-          $store_id = $store[0];
+          $store_id = $store['id_mechanic'];
           
         
         $stmt = $dbh->prepare("SELECT name FROM mechanic_store WHERE id_mechanic = :id");
         $stmt->bindParam(':id', $store_id, PDO::PARAM_INT);
         $stmt->execute();
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
         
       }
-        return $resultado;
+        return $resultado['name'];
       } catch (PDOException $e) {
         echo "ERROR: " . $e->getMessage();
         redirect('errorpagePDO_view.php');

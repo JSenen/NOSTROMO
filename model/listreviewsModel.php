@@ -58,8 +58,8 @@ function listReviews($dbh,$reviews,$brand, $id)
             <td><?php  
                 $idreview = $review['id_review'];
                 $getmechanic = new Mechanic();
-                $mechanic = $getmechanic->getOneMechanicByReview($dbh, $idreview);
-                echo isset($mechanic['name']) ? $mechanic['name'] : 'Valor no disponible';?></td>
+                $mechanicName = $getmechanic->getOneMechanicByReview($dbh, $idreview);
+                echo isset($mechanicName) ? $mechanicName : 'Valor no disponible';?></td>
             <td><a href="#" class="btn btn-primary"><i class="fas fa-pencil-alt"> Editar</a></td>
             <td><a href="index.php?idlorry=<?php echo $review['id_review']?>&action=eraseReview&matricula=<?php echo $brand?>" class="btn btn-danger"><i class="fas fa-trash"> Borrar</a></td>
           </tr>
