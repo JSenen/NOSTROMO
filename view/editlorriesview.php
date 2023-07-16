@@ -19,11 +19,11 @@
         <?php if ($lorryphoto) { ?>
           <img src="data:image/jpeg;base64,<?php echo base64_encode($lorryphoto); ?>" alt="Foto" style="max-width: 200px; max-height: 200px;">
         <?php } else { ?>
-          <span>Sin foto</span>
+          <img src="./resources/img/NO_IMG.png" alt="Foto" style="max-width: 200px; max-height: 200px;">
         <?php } ?>
       </div>
       <div class="form-group">
-        <label for="lorryNewPhoto">NUEVA FOTO</label>
+        <label for="lorryNewPhoto">NUEVA FOTO:</label>
         <input type="file" class="form-control-file" name="lorrynewphoto" id="lorrynewphoto">
       </div>
    </div>
