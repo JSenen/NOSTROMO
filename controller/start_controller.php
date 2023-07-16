@@ -115,13 +115,14 @@ function eraseReview($id_review,$brand) {
     header('Location: index.php?idlorry='.$brand.'&action=seeReviewsLoory');
 }
 
-function editReview($id_review,$brand) {
+function editReview($idrw,$brand) {
     $conecction = new Conecction();
     $dbh = $conecction->getConection();
+    include 'view/headerview.php';
     $reviewToEdit = new Review();
-    $reviewEdit = $reviewToEdit->getOneReview($dbh,$id_review);
-    include 'model/addmechanicModel.php';
-    modReview($dbh,$id_review,$reviewEdit);
+    $reviewEdit = $reviewToEdit->getOneReview($dbh,$idrw);
+    include 'model/addlorryModel.php';
+    modOneReview($dbh,$reviewEdit);
 
     
 }

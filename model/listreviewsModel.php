@@ -60,8 +60,8 @@ function listReviews($dbh,$reviews,$brand, $id)
                 $getmechanic = new Mechanic();
                 $mechanicName = $getmechanic->getOneMechanicByReview($dbh, $idreview);
                 echo isset($mechanicName) ? $mechanicName : 'Valor no disponible';?></td>
-            <td><a href="index.php?idLorry=<?php echo $review['idlorry_review']?>&action=editReview" class="btn btn-primary"><i class="fas fa-pencil-alt"> Editar</a></td>
-            <td><a href="index.php?idlorry=<?php echo $review['id_review']?>&action=eraseReview&matricula=<?php echo $id?>" class="btn btn-danger"><i class="fas fa-trash"> Borrar</a></td>
+            <td><a href="index.php?idlorry=<?php echo $review['id_review']?>&action=editReview" class="btn btn-primary"><i class="fas fa-pencil-alt">Editar</a></td>
+            <td><a href="index.php?idlorry=<?php echo $review['id_review']?>&action=eraseReview&matricula=<?php echo $id?>" class="btn btn-danger"><i class="fas fa-trash">Borrar</a></td>
           </tr>
 
           <?php
