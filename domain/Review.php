@@ -99,4 +99,39 @@ class Review{
             echo "ERROR: " . $e->getMessage();
           }
     }
+
+    public function getOneReview($dbh, $id_review){
+        try{
+            $stmt = $dbh->prepare('SELECT * from review WHERE id_review = :id');
+            $stmt->bindParam(':id', $id_review, PDO::PARAM_INT);
+            $stmt->execute();
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if (!$resultado) { // Si no existe 
+                echo 'SIN RESULTADO'; //TODO fixit
+                } return $resultado;
+        }catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+
+    public function modyReview($dbh, $id_review, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_exported, $rw_km, $rw_price){
+        try {
+            //configuramos el prepared statement
+            $stmt = $dbh->prepare("UPDATE review SET odc = :odc, comments = :comments, date_in = :datein , date_out = :dateout, exported = :exported,
+            km_review = :km, price =  :price WHERE id_review = :id");
+            $stmt->bindParam(':odc', $rw_odc, PDO::PARAM_STR);
+            $stmt->bindParam(':comments', $rw_comments, PDO::PARAM_STR);
+            $stmt->bindParam(':date_in', $rw_datein, PDO::PARAM_STR);
+            $stmt->bindParam(':date_out', $rw_dateout, PDO::PARAM_STR);
+            $stmt->bindParam(':exported', $rw_exported, PDO::PARAM_STR);
+            $stmt->bindParam(':km_rview', $rw_km, PDO::PARAM_INT);
+            $stmt->bindParam(':price', $rw_price, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $id_review, PDO::PARAM_INT);
+      
+            $stmt->execute();
+          } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            //TODO
+          }
+    }
 }

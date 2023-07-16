@@ -113,4 +113,8 @@ function editLorry($dbh,$lorry){
           }
       }
   }  
+
+  function modOneReview($dbh,$id_review){
+    
+  }
 ?>
