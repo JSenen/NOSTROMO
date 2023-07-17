@@ -54,7 +54,7 @@ public function getOneLorry($dbh, $id){
     echo "ERROR: " . $e->getMessage();
     redirect('errorpagePDO_view.php');
   }
-  return $resultado;
+  return $resultado;  
 }
 
 function modyLorry($dbh, $brand, $model, $km, $lorryphoto, $id){

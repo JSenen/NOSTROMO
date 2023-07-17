@@ -102,8 +102,8 @@ class Review{
 
     public function getOneReview($dbh, $id_review){
         try{
-            $stmt = $dbh->prepare('SELECT odc, comments, date_in, date_out, exported, km_review, price, idlorry_review FROM review WHERE id_review = :id');
-            $stmt->bindParam(':id', $id_review, PDO::PARAM_STR);
+            $stmt = $dbh->prepare('SELECT id_review, odc, comments, date_in, date_out, km_review, price, idlorry_review FROM review WHERE id_review = :id');
+            $stmt->bindParam(':id', $id_review, PDO::PARAM_INT);
             $stmt->execute();
             $resultado_review = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if (!$resultado_review) { // Si no existe 
@@ -115,19 +115,19 @@ class Review{
         return $resultado_review;
     }
 
-    public function modyReview($dbh, $id_review, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_exported, $rw_km, $rw_price){
+    public function modyReview($dbh, $id, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_km, $rw_price){
         try {
+            /* $date_in = date('Y-m-d', strtotime($rw_datein));
+            $date_out = date('Y-m-d', strtotime($rw_dateout)); */
             //configuramos el prepared statement
-            $stmt = $dbh->prepare("UPDATE review SET odc = :odc, comments = :comments, date_in = :datein , date_out = :dateout, exported = :exported,
-            km_review = :km, price = :price WHERE id_review = :id");
+            $stmt = $dbh->prepare("UPDATE review SET odc = :odc, comments = :comments, date_in = :date_in, date_out = :date_out, km_review = :km , price = :price WHERE id_review = :id ");
             $stmt->bindParam(':odc', $rw_odc, PDO::PARAM_STR);
             $stmt->bindParam(':comments', $rw_comments, PDO::PARAM_STR);
             $stmt->bindParam(':date_in', $rw_datein, PDO::PARAM_STR);
             $stmt->bindParam(':date_out', $rw_dateout, PDO::PARAM_STR);
-            $stmt->bindParam(':exported', $rw_exported, PDO::PARAM_INT);
-            $stmt->bindParam(':km_rview', $rw_km, PDO::PARAM_INT);
-            $stmt->bindParam(':price', $rw_price, PDO::PARAM_INT);
-            $stmt->bindParam(':id', $id_review, PDO::PARAM_STR);
+            $stmt->bindParam(':km', $rw_km, PDO::PARAM_STR);
+            $stmt->bindParam(':price', $rw_price, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
       
             $stmt->execute();
           } catch (PDOException $e) {

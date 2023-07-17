@@ -117,13 +117,16 @@ function editLorry($dbh,$lorry){
   function modOneReview($dbh,$review){
     
         foreach ($review as $rw ) {
+         
           $review_odc = $rw['odc'];
           $review_comments = $rw['comments'];
           $review_datein = $rw['date_in'];
           $review_dateout = $rw['date_out'];
-          $review_exported = $rw['exported'];
           $review_km = $rw['km_review'];
           $review_price = $rw['price'];
+          $id_review = $rw['id_review'];
+
+          
           //Pasamos los datos al formulario
           include 'view/editReviewView.php';
         }
@@ -136,17 +139,17 @@ function editLorry($dbh,$lorry){
           $rw_comments = $_POST['comments'];
           $rw_datein = $_POST['datein'];
           $rw_dateout = $_POST['dateout'];
-          $rw_exported = $_POST['reviewodc'];
+          /* $rw_exported = $_POST['exported']; */
           $rw_km = $_POST['kmreview'];
           $rw_price = $_POST['reviewprice'];
-              
+          $id = $id_review;
           // Guardamos los datos en la base de datos
           $reviewToChange = new Review();
-          $reviewToChange->modyReview($dbh, $id_review, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_exported, $rw_km, $rw_price);
-      
+          $reviewToChange->modyReview($dbh, $id, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_km, $rw_price);
+          
           // Redirigimos a la página principal
           ?>
-          <script> location.replace("index.php"); </script>
+          <script> location.replace("index.php?action=reviews"); </script> 
           <?php
           exit();
         }

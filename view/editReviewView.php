@@ -5,7 +5,7 @@ $listmechanic = $mechaniclist->getMechanics($dbh);
 ?>
 <div class="page-content p-5 text-gray" id="content"> 
  <!-- content -->  
- <form action="" method="post">
+ <form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="FechaInicio">Fecha Inicio</label>
     <input type="date" class="form-control" name="datein" id="datein" value="<?php echo $review_datein ?>">
@@ -30,12 +30,7 @@ $listmechanic = $mechaniclist->getMechanics($dbh);
     <label for="ODC">ODC</label>
     <input type="text" class="form-control" name="reviewodc" id="reviewodc" value="<?php echo $review_odc ?>">
   </div>
-  <div class="form-group">
-  <label for="Exportada">Exportada</label>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" name="exported" id="exported" value="1" <?php if ($review_exported == 1) echo 'checked'; ?>>
-  </div>
-</div>
+ 
   <button type="submit" class="btn btn-primary mt-3" name="EditAReview">Modificar</button>
   <a href="index.php?action=reviews" class="btn btn-secondary mt-3">Regresar</a>
 </form>
