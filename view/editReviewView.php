@@ -30,6 +30,11 @@ $listmechanic = $mechaniclist->getMechanics($dbh);
     <label for="ODC">ODC</label>
     <input type="text" class="form-control" name="reviewodc" id="reviewodc" value="<?php echo $review_odc ?>">
   </div>
+  <div class="form-group">
+      <label for="Exportada">Exportada</label>
+      <div class="form-check">
+      <input type="checkbox" class="form-check-input" name="exported" id="exported" <?php if ($review_exported == 1) echo 'checked'; ?>>
+  </div>
  
   <button type="submit" class="btn btn-primary mt-3" name="EditAReview">Modificar</button>
   <a href="index.php?action=reviews" class="btn btn-secondary mt-3">Regresar</a>

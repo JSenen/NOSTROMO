@@ -124,6 +124,7 @@ function editLorry($dbh,$lorry){
           $review_dateout = $rw['date_out'];
           $review_km = $rw['km_review'];
           $review_price = $rw['price'];
+          $review_exported = $rw['exported'];
           $id_review = $rw['id_review'];
 
           
@@ -139,13 +140,15 @@ function editLorry($dbh,$lorry){
           $rw_comments = $_POST['comments'];
           $rw_datein = $_POST['datein'];
           $rw_dateout = $_POST['dateout'];
-          /* $rw_exported = $_POST['exported']; */
           $rw_km = $_POST['kmreview'];
           $rw_price = $_POST['reviewprice'];
           $id = $id_review;
+
+          // Obtener el valor de la casilla de verificación 'exported'
+          $rw_exported = isset($_POST['exported']) ? 1 : 0;
           // Guardamos los datos en la base de datos
           $reviewToChange = new Review();
-          $reviewToChange->modyReview($dbh, $id, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_km, $rw_price);
+          $reviewToChange->modyReview($dbh, $id, $rw_odc, $rw_comments, $rw_datein, $rw_dateout, $rw_km, $rw_price, $rw_exported);
           
           // Redirigimos a la página principal
           ?>
