@@ -49,7 +49,7 @@ class Review{
         }
     }
 
-    public function addReviewToLorry($dbh, $id, $review_fechain, $review_fechaout, $review_commnets, $review_kmreview, $review_reviewodc, $review_reviewprice,$review_reviewmechanic) {
+    public function addReviewToLorry($dbh, $id, $review_fechain, $review_fechaout, $review_commnets, $review_kmreview, $review_reviewodc, $review_reviewprice,$review_reviewmechanic, $review_exported) {
         $comments = strtoupper($review_commnets);
         $odc = strtoupper($review_reviewodc);
         
@@ -57,7 +57,7 @@ class Review{
             $date_in = date('Y-m-d', strtotime($review_fechain));
             $date_out = date('Y-m-d', strtotime($review_fechaout));
             
-            $sql = "INSERT INTO review (idlorry_review, odc, comments, date_in, date_out, km_review, price) VALUES (:idlorry, :odc, :comments, :datein, :dateout, :km, :price) ";
+            $sql = "INSERT INTO review (idlorry_review, odc, comments, date_in, date_out, km_review, price, exported) VALUES (:idlorry, :odc, :comments, :datein, :dateout, :km, :price, :exported) ";
             $stmt = $dbh->prepare($sql);
             $stmt->bindValue(':idlorry', $id, PDO::PARAM_STR);
             $stmt->bindParam(':odc', $odc, PDO::PARAM_STR);
@@ -66,6 +66,7 @@ class Review{
             $stmt->bindParam(':dateout', $date_out, PDO::PARAM_STR);
             $stmt->bindParam(':km', $review_kmreview, PDO::PARAM_STR);
             $stmt->bindParam(':price', $review_reviewprice, PDO::PARAM_STR);
+            $stmt->bindParam(':exported', $review_exported, PDO::PARAM_INT);
             $stmt->execute();
 
             // Obtener el ID de la última inserción en la tabla review

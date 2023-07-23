@@ -2,6 +2,7 @@
 include_once './domain/Mechanic.php';
 $mechaniclist = new Mechanic();
 $listmechanic = $mechaniclist->getMechanics($dbh);
+$review_exported = 0;
 ?>
 <div class="page-content p-5 text-gray" id="content"> 
  <!-- content -->  
@@ -30,6 +31,13 @@ $listmechanic = $mechaniclist->getMechanics($dbh);
       <label for="ODC">ODC</label>
       <input type="text" class="form-control" name="reviewodc" id="reviewodc" placeholder="ODC">
     </div>
+    <div>
+    <div class="form-group">
+        <label for="Exportada">Exportada</label>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="exported" id="exported" <?php if ($review_exported == 1) echo 'checked'; ?>>
+    </div>
+  </div>
     <div class="form-group">
       <label for="mecanico">Mecánico</label>
       <select class="form-control" name="reviewmechanic" id="reviewmechanic">
