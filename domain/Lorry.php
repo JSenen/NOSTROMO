@@ -38,23 +38,17 @@ public function addLorries($dbh, $brand, $model, $km, $photo){
   
       }    
 }
-
-public function getOneLorry($dbh, $id){
-  try {
-    
+function getOneLorry($dbh, $id) {
+  try {    
     $stmt = $dbh->prepare("SELECT id_lorry, brand, model, km, lorry_photo FROM lorry WHERE id_lorry = :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_STR);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if (!$resultado) { // Si no existe 
-      echo 'SIN RESULTADO'; //TODO fixit
-    }
-
+    return $resultado;
   } catch (PDOException $e) {
     echo "ERROR: " . $e->getMessage();
     redirect('errorpagePDO_view.php');
   }
-  return $resultado;  
 }
 
 function modyLorry($dbh, $brand, $model, $km, $lorryphoto, $id){
@@ -83,6 +77,7 @@ function deletelorry($dbh,$id){
     echo "ERROR: " . $e->getMessage();
   }
 }
+
 }
 
 ?>

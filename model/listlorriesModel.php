@@ -29,6 +29,7 @@ function listLorrys($lorries)
 
           <tr>
             <td>
+              <a href="index.php?idlorry=<?php echo $lorry['id_lorry']?>&action=viewLorryDetail">
               <?php
               if ($lorry['lorry_photo']) {
                 // Obtener la imagen de la base de datos
@@ -48,6 +49,7 @@ function listLorrys($lorries)
                 <?php
               }
               ?>
+              </a>
             </td>
             <td style="vertical-align: middle; font-weight: bold; font-size: 18px;"><?php echo $lorry['brand'];?></td>
             <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>

@@ -126,4 +126,15 @@ function editReview($idrw,$brand) {
 
     
 }
+
+function viewLorryDetail($id){
+
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    include 'view/headerview.php';
+    $lorryToMod = new Lorry();
+    $lorrySearch = $lorryToMod->getOneLorry($dbh, $id);
+    include 'model/detailModel.php';
+    seeDetailsLorry($lorrySearch);
+}
 ?>
