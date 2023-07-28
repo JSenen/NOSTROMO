@@ -137,4 +137,14 @@ function viewLorryDetail($id){
     include 'model/detailModel.php';
     seeDetailsLorry($lorrySearch);
 }
+
+function reports(){
+    $conecction = new Conecction();
+    $dbh = $conecction->getConection();
+    $lorrylist = new Lorry();
+    $listlorries = $lorrylist->getLorries($dbh);
+    include 'model/listlorriesreports.php';
+    seeListLorriesReports($listlorries);
+    
+}
 ?>
