@@ -5,6 +5,7 @@ $listmechanic = $mechaniclist->getMechanics($dbh);
 $review_exported = 0;
 ?>
 <div class="page-content p-5 text-gray" id="content"> 
+<p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">AÑADIR REVISIÓN</p>
  <!-- content -->  
   <form action="" method="post">
   <div class="form-group">

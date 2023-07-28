@@ -1,5 +1,6 @@
 <div class="page-content p-5 text-gray" id="content"> 
  <!-- content -->  
+ <p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">EDITAR AGENDA</p>
   <form action="" method="post">
     <div class="form-group">
       <label for="mechanicName">Nombre</label>

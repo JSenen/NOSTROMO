@@ -35,6 +35,7 @@
     margin: 0 auto;
   }
 </style>
+<p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">DETALLES VEHÍCULO</p>
   <div class="container mt-5">
     <div class="details-container">
       <div class="form-group">

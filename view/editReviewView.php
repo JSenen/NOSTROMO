@@ -4,6 +4,7 @@ $mechaniclist = new Mechanic();
 $listmechanic = $mechaniclist->getMechanics($dbh);
 ?>
 <div class="page-content p-5 text-gray" id="content"> 
+<p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">EDITAR REVISIÓN</p>
  <!-- content -->  
  <form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">

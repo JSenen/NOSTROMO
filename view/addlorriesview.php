@@ -1,5 +1,6 @@
 <div class="page-content p-5 text-gray" id="content"> 
  <!-- content -->  
+ <p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">AÑADIR VEHÍCULO</p>
  <form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="lorryBrand">MATRICULA</label>
