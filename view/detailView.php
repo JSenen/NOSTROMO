@@ -53,6 +53,7 @@
         <label for="lorryModel">KM:</label>
         <span id="lorrykm"><?php echo $lorrykm ?></span>
       </div>
+      
       <div class="form-group">
         <label for="lorryPhoto">FOTO:</label>
         <div>
