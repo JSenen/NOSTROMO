@@ -63,6 +63,12 @@ $(function() {
                 Agenda
               </a>
             </li>
+            <li class="nav-item">
+              <a href="" class="nav-link text-white font-italic bg-trasparent">
+                <i class="fa fa-file-excel mr-3 text-white fa-fw"></i>
+                Informes
+              </a>
+            </li>
           </ul>
        </div>
     </header>
