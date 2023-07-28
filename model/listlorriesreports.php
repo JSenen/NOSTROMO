@@ -1,11 +1,12 @@
 <?php
 include_once('./domain/Lorry.php');
+include_once('./domain/Review.php');
 include_once('./view/headerview.php');
 
-function seeListLorriesReports($lorriesList){
+function seeListLorriesReports($dbh, $lorriesList){
 ?>
+<p style="vertical-align: middle; font-weight: bold; font-size: 24px; color: blue;">INFORMES</p>
  <div class="contenido">
-
 <table class="table table-striped table-fixed" id="tableLorries">
   <thead>
     <tr>
@@ -19,7 +20,16 @@ function seeListLorriesReports($lorriesList){
   <tbody>
 
     <?php
+    $totalPrice = 0;
     foreach ($lorriesList as $lorry) {
+        $id_lorry = $lorry['id_lorry'];                          //Recuperamos Id de cada camion
+        $rev = new Review();
+        $revToCount = $rev->getReviewsByLorry($dbh, $id_lorry); //Array de revisiones de cada camion
+            foreach ($revToCount as $simpleRev) {               // Recorremos las revisones del camion para ir sumando
+                $revId = $simpleRev['id_review'];
+                $revPrice = $simpleRev['price'];
+                $totalPrice = $totalPrice + $revPrice;
+            }
       ?>
 
       <tr>
@@ -49,7 +59,7 @@ function seeListLorriesReports($lorriesList){
         <td style="vertical-align: middle; font-weight: bold; font-size: 18px;"><?php echo $lorry['brand'];?></td>
         <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>
         <td style="vertical-align: middle;"><?php echo $lorry['model'];?></td>
-        <td style="vertical-align: middle;">GASTO</td>
+        <td style="vertical-align: middle; color: red;"><?php echo $totalPrice.' €'?></td>
       </tr>
 
       <?php

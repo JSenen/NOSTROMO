@@ -144,7 +144,7 @@ function reports(){
     $lorrylist = new Lorry();
     $listlorries = $lorrylist->getLorries($dbh);
     include 'model/listlorriesreports.php';
-    seeListLorriesReports($listlorries);
+    seeListLorriesReports($dbh, $listlorries);
     
 }
 ?>
