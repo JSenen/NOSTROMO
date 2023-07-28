@@ -13,6 +13,7 @@ function seeListLorriesReports($lorriesList){
       <th class="text-info" style="width: 14%">MATRICULA</th>
       <th class="text-info" style="width: 14%">KM</th>
       <th class="text-info" style="width: 14%">MODELO</th>
+      <th class="text-info" style="width: 14%">GASTO TOTAL</th>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +49,7 @@ function seeListLorriesReports($lorriesList){
         <td style="vertical-align: middle; font-weight: bold; font-size: 18px;"><?php echo $lorry['brand'];?></td>
         <td style="vertical-align: middle;"><?php echo $lorry['km'];?></td>
         <td style="vertical-align: middle;"><?php echo $lorry['model'];?></td>
-        
+        <td style="vertical-align: middle;">GASTO</td>
       </tr>
 
       <?php
